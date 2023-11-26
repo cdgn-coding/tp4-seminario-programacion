@@ -1,0 +1,44 @@
+@startuml
+
+package "Appointment System" {
+    class Car {
+        + brand: String
+        + model: String
+        + year: int
+    }
+
+    class Customer {
+        + name: String
+        + identificationType: String
+        + identificationNumber: String
+        + phoneNumber: String
+        + email: String
+    }
+
+    class Insurance {
+        + name: String
+        + legalName: String
+    }
+
+    class Schedule {
+        + dateTime: Date
+        + professionalType: String
+        + car: Car
+        + insurance: Insurance
+        + customer: Customer
+    }
+
+    class ScheduleRepository {
+        + addSchedule(schedule: Schedule): void
+        + updateSchedule(schedule: Schedule): void
+        + getScheduleById(id: String): Schedule
+        + getAllSchedules(): List<Schedule>
+    }
+
+    Schedule --> Car: Includes
+    Schedule --> Customer: Belongs to
+    Schedule --> Insurance: Has
+    ScheduleRepository --> Schedule: Manages
+}
+
+@enduml
