@@ -1,6 +1,8 @@
-module com.tp3.programacion {
+module com.tp4.programacion {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.graphics;
+    requires javafx.base;
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
@@ -9,13 +11,14 @@ module com.tp3.programacion {
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
     requires jakarta.persistence;
-    requires lombok;
+    requires static lombok;
 
-    opens com.tp3.programacion to javafx.fxml;
-    opens com.tp3.programacion.controller to javafx.fxml;
-    opens com.tp3.programacion.persistance to javafx.fxml;
-    exports com.tp3.programacion;
-    opens com.tp3.programacion.model to javafx.fxml;
-    opens com.tp3.programacion.business to javafx.fxml;
-    opens com.tp3.programacion.persistance.hibernate to javafx.fxml;
+
+    opens com.tp4.programacion to javafx.fxml;
+    opens com.tp4.programacion.controller to javafx.fxml;
+    opens com.tp4.programacion.persistance to javafx.fxml;
+    opens com.tp4.programacion.model to javafx.fxml;
+    opens com.tp4.programacion.business to javafx.fxml;
+    opens com.tp4.programacion.persistance.hibernate to javafx.fxml;
+    exports com.tp4.programacion;
 }
