@@ -75,9 +75,24 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.17</version>
+        </dependency>
+        <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>6.2.7.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.3.5.Final</version>
         </dependency>
         <dependency>
             <groupId>jakarta.transaction</groupId>
@@ -130,6 +145,7 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <argLine> --add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED </argLine>
+                    <argLine> --add-exports org.hibernate.orm.core/jakarta.persistence=ALL-UNNAMED </argLine>
                 </configuration>
             </plugin>
             <plugin>

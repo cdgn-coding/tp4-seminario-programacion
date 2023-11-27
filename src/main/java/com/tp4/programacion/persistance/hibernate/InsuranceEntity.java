@@ -2,25 +2,24 @@ package com.tp4.programacion.persistance.hibernate;
 
 
 import com.tp4.programacion.model.Insurance;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "Insurance")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class InsuranceEntity {
     @Id
-    @GeneratedValue
-    private Long id;
-    private String name;
-    private String companyName;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Long id;
+    public String name;
+    public String companyName;
 
     public Insurance toDomain() {
         return new Insurance(id, name, companyName);

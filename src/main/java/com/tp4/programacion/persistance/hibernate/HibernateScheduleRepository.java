@@ -29,7 +29,9 @@ public class HibernateScheduleRepository implements ScheduleService {
 
     @Override
     public void addSchedule(Schedule schedule) {
+        em.getTransaction().begin();
         em.persist(ScheduleEntity.fromDomain(schedule));
+        em.getTransaction().commit();
     }
 
     @Override

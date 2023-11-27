@@ -11,6 +11,7 @@ module com.tp4.programacion {
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
     requires jakarta.persistence;
+    requires org.hibernate.orm.core;
     requires static lombok;
 
 
@@ -19,6 +20,8 @@ module com.tp4.programacion {
     opens com.tp4.programacion.persistance to javafx.fxml;
     opens com.tp4.programacion.model to javafx.fxml;
     opens com.tp4.programacion.business to javafx.fxml;
-    opens com.tp4.programacion.persistance.hibernate to javafx.fxml;
+    opens com.tp4.programacion.persistance.hibernate to javafx.fxml, org.hibernate.orm.core, jakarta.persistence;
+
+    exports com.tp4.programacion.persistance.hibernate;
     exports com.tp4.programacion;
 }

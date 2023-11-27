@@ -1,28 +1,27 @@
 package com.tp4.programacion.persistance.hibernate;
 
 import com.tp4.programacion.model.Customer;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "Customer")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomerEntity {
     @Id
-    @GeneratedValue
-    private Long id;
-    private String name;
-    private String identificationType;
-    private String identificationNumber;
-    private String phoneNumber;
-    private String email;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Long id;
+    public String name;
+    public String identificationType;
+    public String identificationNumber;
+    public String phoneNumber;
+    public String email;
 
     public Customer toDomain() {
         return new Customer(id, name, identificationType, identificationNumber, phoneNumber, email);
